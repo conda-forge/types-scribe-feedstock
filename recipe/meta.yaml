@@ -1,5 +1,5 @@
 {% set name = "types-scribe" %}
-{% set version = "0.1.3" %}
+{% set version = "2.0.0" %}
 
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/types-scribe-{{ version }}.tar.gz
-  sha256: 573ae400cfd46d9b4bf4574bf7035c7969cc25c396ed0789b42e0db6e1b92e66
+  sha256: c302f6ae55a1d9a5f4c83754deccf85674cf6807683b2df5e66be41a1f2a2655
 
 build:
   number: 0
