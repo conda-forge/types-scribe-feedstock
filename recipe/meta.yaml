@@ -7,23 +7,26 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/types-scribe-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/types-scribe-{{ version }}.tar.gz
   sha256: c302f6ae55a1d9a5f4c83754deccf85674cf6807683b2df5e66be41a1f2a2655
 
 build:
-  number: 0
+  number: 1
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   host:
+    - python {{ python_min }}
+    - setuptools
     - pip
-    - python >=3.6
   run:
-    - python >=3.6
+    - python >={{ python_min }}
     - types-fb303
 
 test:
+  requires:
+    - python {{ python_min }}
   commands:
     - test -f $SP_DIR/scribe-python2-stubs/__init__.pyi
 
